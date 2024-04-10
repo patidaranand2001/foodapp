@@ -1,0 +1,38 @@
+{
+  "name": "namste-react",
+  "version": "1.0.0",
+  "description": "this is  project of course namste-react ",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patidaranand2001/Namste-React.git"
+  },
+  "author": "anand patidar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patidaranand2001/Namste-React/issues"
+  },
+  "homepage": "https://github.com/patidaranand2001/Namste-React#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "postcss": "^8.4.38",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.3"
+  },
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
