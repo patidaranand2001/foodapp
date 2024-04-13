@@ -7,11 +7,16 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 import RestaurantCard from "./RestaurantCard";
+import { isOpen } from "./RestaurantCard";
+
+
 const Body = () => {
   //  local satate variable
   const [restList, setrestoList] = useState(null);
   const [filterlist, setfilterdlist] = useState([]);
   const [query, setquery] = useState("");
+
+  const Openrestorent=isOpen(RestaurantCard);
 
  
 
@@ -28,8 +33,8 @@ const Body = () => {
 
     const json = await data.json();
     // console.log(json);
-    setrestoList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setfilterdlist(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setrestoList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setfilterdlist(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
 
@@ -63,9 +68,12 @@ const Body = () => {
       <div className="my-4 flex flex-wrap">
         {/* // * looping through the <RestaurentCard /> components Using Array.map() method */}
 
-        {filterlist.map((restaurant) => (
+        {filterlist?.map((restaurant) => (
           <Link to={"/restaurant/" + restaurant.info.id} key={restaurant.info.id}>
-            <RestaurantCard resData={restaurant} />
+            {/* <RestaurantCard resData={restaurant} /> */}
+            {restaurant.info.isOpen ? (<Openrestorent resData={restaurant}  />):
+            (<RestaurantCard resData={restaurant} />) }
+          
           </Link>
         ))}
 

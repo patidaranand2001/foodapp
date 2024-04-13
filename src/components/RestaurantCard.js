@@ -4,11 +4,12 @@ const RestaurantCard = (props) => {
     const { resData } = props;
   
     const {
-      cloudinaryImageId,
+      
       name,
+      cloudinaryImageId,
+      costForTwo,
       cuisines,
       avgRating,
-      costForTwo,
       deliveryTime,
     } = resData?.info;
   
@@ -25,7 +26,7 @@ const RestaurantCard = (props) => {
           // }
   
           src={
-            IMG_SRC +
+           "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+
             cloudinaryImageId
           }
           alt="Biryani"
@@ -46,5 +47,17 @@ const RestaurantCard = (props) => {
     );
   };
 
+
+  export  const isOpen =(RestaurantCard)=>{
+      return (props)=>{
+         
+
+        return ( <>
+          <label className=" m-4 absolute bg-green-500 rounded-lg zin">open</label>
+          <RestaurantCard {...props}/>
+          </>
+        )
+      }
+  }
   
   export default RestaurantCard;
