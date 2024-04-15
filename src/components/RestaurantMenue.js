@@ -10,7 +10,7 @@ const RestaurantMenue = () => {
    
     const { Id } = useParams();
     const restromenue = useRestaurentMenu(Id);
-    const [itemIndex ,setItemIndex]=useState(2);
+    const [itemIndex ,setItemIndex]=useState(0);
   
 
     if (restromenue == null) return <Shemaroo />;

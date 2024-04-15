@@ -5,8 +5,10 @@ import ItemList from "./ItemList"
 
 export default function RestaurantCategories({ data ,showIndex ,setItemIndex }) {
 //    const [tempState,SettempState]=useState(showIndex)
+const [showItem,setshowItem]=useState(true);
    const handelClick=()=>{
     setItemIndex();
+    setshowItem(!showItem);
     
    }
     return (
@@ -15,7 +17,7 @@ export default function RestaurantCategories({ data ,showIndex ,setItemIndex }) 
                 <span  className="font-bold text-lg">{data.title} ({data.itemCards.length})</span>
                 <span>⬇️</span>
             </div>
-           {showIndex && <ItemList items={data.itemCards}/>}
+           {showItem&& showIndex && <ItemList items={data.itemCards}/>}
             </div>
        
     )

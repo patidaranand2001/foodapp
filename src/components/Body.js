@@ -1,6 +1,6 @@
 // import resList from "../utils/resList";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shemaroo from "./Shemaroo";
 import { Link } from "react-router-dom";
 
@@ -9,9 +9,14 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import RestaurantCard from "./RestaurantCard";
 import { isOpen } from "./RestaurantCard";
 
+import Usercontext from "../utils/UserContext";
+
 
 const Body = () => {
+
+
   //  local satate variable
+  const {loginUser,setloginUser} =useContext(Usercontext);
   const [restList, setrestoList] = useState(null);
   const [filterlist, setfilterdlist] = useState([]);
   const [query, setquery] = useState("");
@@ -53,8 +58,8 @@ const Body = () => {
 
     <div className="body m-2 p-2">
       <div className=" flex justify-center">
-        <input className=" border-solid border-black " type="text" placeholder="Search Food or Restaurant" value={query}
-          onChange={(e) => setquery(event.target.value)} />
+        <input className=" border-2 border-black " type="text" placeholder="Search Food or Restaurant" value={query}
+          onChange={(e) => setquery(e.target.value)} />
         <button
         className=" mx-4 px-3 py-1 bg-green-400  rounded-md"
           onClick={() => {
@@ -64,6 +69,15 @@ const Body = () => {
         >
           Search
         </button>
+
+        
+      </div>
+      <div>
+        <label>User:</label>
+        <input  className=" border-2 border-black " type="text" 
+        value={loginUser}
+        onChange={(e)=>setloginUser(e.target.value)}
+         />
       </div>
       <div className="my-4 flex flex-wrap">
         {/* // * looping through the <RestaurentCard /> components Using Array.map() method */}

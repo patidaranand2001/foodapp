@@ -1,7 +1,9 @@
 import UserClass from "./User"
 import React from "react"
+import Usercontext from "../utils/UserContext";
 
 class About extends React.Component {
+
 
   constructor(){
     super();
@@ -20,7 +22,7 @@ class About extends React.Component {
     const data = await fetch("https://api.github.com/users/patidaranand2001");
     const json=await data.json();
 
-    console.log(json);
+    // console.log(json);
     this.setState({userinfo:json})
   }
 
@@ -33,7 +35,14 @@ class About extends React.Component {
     
 
     <div>
-      <h1>About</h1>
+    <div>
+      
+      
+  <Usercontext.Consumer>
+    {({loggedinUser})=>(<h2 className="font-bold">User : { loggedinUser}</h2>)}
+    </Usercontext.Consumer>
+    </div>
+      <h1 className="font-bold">About</h1>
       <h2>this is swiggy lite by Berlin</h2>
       <UserClass name={name} id={id} />
     </div>

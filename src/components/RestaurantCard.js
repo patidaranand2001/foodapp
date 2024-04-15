@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { IMG_SRC } from "../utils/constants";
-
+import Usercontext from "../utils/UserContext";
 const RestaurantCard = (props) => {
     const { resData } = props;
+
+   const {loggedinUser}=useContext(Usercontext); 
   
     const {
       
@@ -15,11 +18,11 @@ const RestaurantCard = (props) => {
   
     return (
       <div
-        className="m-2 p-1 w-[230px] bg-gray-100 hover:bg-gray-300 rounded-lg"
+        className="m-3 p-1  w-[180px] bg-gray-100 hover:bg-gray-300 rounded-lg"
         
       >
         <img
-          className="m-2 w-[210px] rounded-lg"
+          className="m-2 w-[160px] rounded-lg"
           // src={
           //   'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/' +
           //   resData.data.cloudinaryImageId
@@ -41,8 +44,8 @@ const RestaurantCard = (props) => {
         <h3 className="text-lg font-bold py-2">{name}</h3>
         <h4>{cuisines.join(', ')}</h4>
         <h4>{avgRating} stars</h4>
-        <h4>₹{costForTwo / 100} FOR TWO</h4>
-        <h4>{deliveryTime} minutes</h4>
+        <h4>User:{loggedinUser}</h4>
+        
       </div>
     );
   };
