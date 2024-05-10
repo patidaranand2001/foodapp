@@ -49,3 +49,11 @@ App stucture
 // * Every company now-a-days follows these approach, because our Appications need to be Dynamic These Days
 
 // * Note: A Good Senior Frontend engineer is - who is a good UI Layer Engineer and a good Data Layer Engineer
+
+# Redux Toolkit
+-Install @reduxjs/toolkit and react-redux
+-Buid our store
+- connect our storen to aur app
+- slice (cartSlice)
+- dispatch(action)
+- selector

@@ -10,6 +10,9 @@ import Errormsg from './components/Errormsg';
 import Contact from './components/Contact';
 import RestaurantMenue from './components/RestaurantMenue';
 import Usercontext from './utils/UserContext';
+import { Provider } from 'react-redux';
+import appStore from './utils/appStore';
+import Cart from './components/Cart';
 // import Grousary from './components/Grousary';
 
 
@@ -32,11 +35,12 @@ const AppLayout = () => {
 
   return (
     <div className="app">
-    
+     <Provider store={appStore}>
       <Usercontext.Provider value={{ loggedinUser: loginUser ,setloginUser}}>
         <Header />
         <Outlet />
       </Usercontext.Provider>
+      </Provider>
 
     </div>
   );
@@ -69,9 +73,14 @@ const router = createBrowserRouter([
         element: <RestaurantMenue />,
 
       },
+      {
+        path: "/cart",
+        element: <Cart/>,
+
+      },
     ],
-    errorElement: <Errormsg />,
-  },
+    errorElement: <Errormsg />, 
+  }
 
 ])
 

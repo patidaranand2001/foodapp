@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 import Usercontext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 
 
@@ -14,6 +15,10 @@ export const Header = () => {
   const [btnname, setbtnname] = useState('log-in');
   const isonline = useOnlineStatus();
   const {loggedinUser}=useContext(Usercontext);
+
+  // subscribe to store 
+  const cartItems=useSelector((store)=>store.cart.items);
+  console.log(cartItems);
   // console.log(loggedinUser);
 
 
@@ -37,7 +42,9 @@ export const Header = () => {
           <li className="m-3 hover:bg-red-400 rounded-lg p-1"><Link to='/about'>About Us</Link></li>
           <li className="m-3 hover:bg-red-400 rounded-lg p-1"> <Link to={'/grousary'}>Grousary</Link></li>
           <li className="m-3 hover:bg-red-400 rounded-lg p-1"><Link to='/contact'>Contact Us</Link></li>
-          <li className="m-3 hover:bg-red-400 rounded-lg p-1">Cart</li>
+          <li className="m-3 hover:bg-red-400 rounded-lg p-1 font-bold ">
+          <Link to='/cart'>Cart ({cartItems.length})</Link>
+          </li>
           <li className="m-3 hover:bg-red-400 rounded-lg p-1"><button onClick={() => {
             if (btnname == 'log-in') setbtnname('log-out');
             if (btnname == 'log-out') setbtnname('log-in');

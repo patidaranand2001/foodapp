@@ -1,8 +1,16 @@
 // import { IMG_SRC } from "../utils/constants";
+import { useDispatch } from "react-redux";
 import { URL_IMG } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
     //    console.log(items)
+    const dispatch=useDispatch();
+
+    const handelClick=(item)=>{
+        dispatch(addItem(item));
+    
+    }
 
     return (
 
@@ -18,7 +26,8 @@ const ItemList = ({ items }) => {
                     </div>
                     <div className="w-3/12">
                     <div className="absolute">
-                    <button className="p-1 bg-black text-white rounded-lg hover:cursor-pointer">Add+</button>
+                    <button className="p-1 bg-black text-white rounded-lg hover:cursor-pointer  " onClick={()=>handelClick(item)}>
+                    Add+</button>
                     </div>
                         <img src={URL_IMG + item?.card?.info?.imageId} className="w-full rounded-lg " />
                     </div>

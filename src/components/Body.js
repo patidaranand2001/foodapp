@@ -16,18 +16,17 @@ const Body = () => {
 
 
   //  local satate variable
-  const {loginUser,setloginUser} =useContext(Usercontext);
+  const { loginUser, setloginUser } = useContext(Usercontext);
   const [restList, setrestoList] = useState(null);
   const [filterlist, setfilterdlist] = useState([]);
   const [query, setquery] = useState("");
 
-  const Openrestorent=isOpen(RestaurantCard);
+  const Openrestorent = isOpen(RestaurantCard);
 
- 
+
 
 
   useEffect(() => {
-
     fetchlist();
   }, []);
 
@@ -36,22 +35,22 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7195687&lng=75.8577258&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
-    const json = await data.json();
+    const json = await data?.json();
     // console.log(json);
     setrestoList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setfilterdlist(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
 
-  const onlineStatus=useOnlineStatus();
+  const onlineStatus = useOnlineStatus();
   // console.log(onlineStatus);
-  if( onlineStatus==false) return <h2>You R off line check your connection </h2>;
-  
+  if (onlineStatus == false) return <h2>You R off line check your connection </h2>;
+
   if (restList == null) {
     return <Shemaroo />;
   }
 
-  
+
 
 
   return (
@@ -61,7 +60,7 @@ const Body = () => {
         <input className=" border-2 border-black " type="text" placeholder="Search Food or Restaurant" value={query}
           onChange={(e) => setquery(e.target.value)} />
         <button
-        className=" mx-4 px-3 py-1 bg-green-400  rounded-md"
+          className=" mx-4 px-3 py-1 bg-green-400  rounded-md"
           onClick={() => {
             const x = restList.filter((restro) => restro.info.name.toLowerCase().includes(query.toLowerCase()));
             setfilterdlist(x);
@@ -70,14 +69,14 @@ const Body = () => {
           Search
         </button>
 
-        
+
       </div>
       <div>
         <label>User:</label>
-        <input  className=" border-2 border-black " type="text" 
-        value={loginUser}
-        onChange={(e)=>setloginUser(e.target.value)}
-         />
+        <input className=" border-2 border-black " type="text"
+          value={loginUser}
+          onChange={(e) => setloginUser(e.target.value)}
+        />
       </div>
       <div className="my-4 flex flex-wrap">
         {/* // * looping through the <RestaurentCard /> components Using Array.map() method */}
@@ -85,9 +84,9 @@ const Body = () => {
         {filterlist?.map((restaurant) => (
           <Link to={"/restaurant/" + restaurant.info.id} key={restaurant.info.id}>
             {/* <RestaurantCard resData={restaurant} /> */}
-            {restaurant.info.isOpen ? (<Openrestorent resData={restaurant}  />):
-            (<RestaurantCard resData={restaurant} />) }
-          
+            {restaurant.info.isOpen ? (<Openrestorent resData={restaurant} />) :
+              (<RestaurantCard resData={restaurant} />)}
+
           </Link>
         ))}
 
