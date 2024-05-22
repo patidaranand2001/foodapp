@@ -1,0 +1,69 @@
+{
+    "info": {
+        "id": "879369",
+        "name": "Madhuram Tiffins",
+        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/5/1/2e4d1355-0f44-4cd3-bfb8-2cefe4da9e3b_879369.jpg",
+        "locality": "Radhakrishna Complex",
+        "areaName": "South Tukoganj",
+        "costForTwo": "₹200 for two",
+        "cuisines": [
+            "Andhra",
+            "South Indian",
+            "Hyderabadi",
+            "Biryani"
+        ],
+        "veg": true,
+        "parentId": "341225",
+        "avgRatingString": "NEW",
+        "sla": {
+            "deliveryTime": 35,
+            "lastMileTravel": 3.6,
+            "serviceability": "SERVICEABLE",
+            "slaString": "35-40 mins",
+            "lastMileTravelString": "3.6 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2024-05-11 13:00:00",
+            "opened": true
+        },
+        "badges": {},
+        "isOpen": true,
+        "aggregatedDiscountInfoV2": {},
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "isNewlyOnboarded": true,
+        "restaurantOfferPresentationInfo": {}
+    },
+    "analytics": {
+        "context": "seo-data-dc27f946-38f8-4f5b-b1cf-5a1d1ee218fc"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/restaurants/madhuram-tiffins-radhakrishna-complex-south-tukoganj-indore-879369",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}
